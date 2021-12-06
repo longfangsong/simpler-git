@@ -6,12 +6,12 @@ use crate::LocalRepository;
 
 
 #[derive(Debug)]
-pub struct RemoteRepository<const TMP: &'static str> {
+pub struct RemoteRepository<const BASE_URL: &'static str> {
     pub owner: String,
     pub name: String,
 }
 
-impl<const TMP: &'static str> RemoteRepository<TMP> {
+impl<const BASE_URL: &'static str> RemoteRepository<BASE_URL> {
     pub fn clone<F>(
         &self,
         dir: impl AsRef<Path>,
@@ -27,7 +27,7 @@ impl<const TMP: &'static str> RemoteRepository<TMP> {
         let mut fetch_option = git2::FetchOptions::new();
         fetch_option.remote_callbacks(callbacks);
         let repo = RepoBuilder::new().fetch_options(fetch_option).clone(
-            &format!("{}/{}/{}", TMP, self.owner, self.name),
+            &format!("{}/{}/{}", BASE_URL, self.owner, self.name),
             dir.as_ref(),
         )?;
         Ok(LocalRepository { inner: repo })

@@ -1,6 +1,6 @@
 [package]
 name = "simpler-git"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["longfangsong <longfangsong@icloud.com>"]
 edition = "2018"
 description = "A simple wrap around git2, for providing a more natural way to work with git repositories."

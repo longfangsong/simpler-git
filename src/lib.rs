@@ -5,6 +5,9 @@ mod local;
 
 pub use local::LocalRepository;
 pub use remote::{GitEERepository, GitHubRepository};
+pub use git2::{Signature, Cred};
+pub use git2;
+
 #[cfg(test)]
 mod tests {
     use super::*;
