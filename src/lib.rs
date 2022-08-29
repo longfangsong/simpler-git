@@ -5,7 +5,7 @@ mod local;
 
 pub use local::LocalRepository;
 pub use remote::RemoteRepository;
-pub use remote::{GitEERepository, GitHubRepository:w
+pub use remote::{GitEERepository, GitHubRepository}
 };
 pub use git2::{Signature, Cred};
 pub use git2;
